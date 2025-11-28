@@ -1,4 +1,4 @@
-# SeleniumAutomation
+# Selenium Automation
 Java + Selenium Automation
 
 # Hybrid Automation Framework 
