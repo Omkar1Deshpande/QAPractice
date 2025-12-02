@@ -1,30 +1,23 @@
 package com.ammroth.framework.config;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 
 	public class ConfigReader {
 	    private static Properties prop = new Properties();
 
-	    static {
-	        FileInputStream fis = null;
+	    public static void loadConfig(){
 			try {
-				fis = new FileInputStream("src/main/resources/config.properties");
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
+				prop.load(fis);
+
+			} 
+			catch (Exception e) {
+				System.out.println("config.properties File Not loading!!");
+				e.printStackTrace();
 			}
-	            try {
-					prop.load(fis);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	       
 	    }
 
-	    public static String get(String key) {
+	    public static String getProp(String key) {
 	        return prop.getProperty(key);
 	    }
 	}
