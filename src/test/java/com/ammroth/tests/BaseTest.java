@@ -12,6 +12,7 @@ import com.ammroth.framework.pages.Dashboards;
 import com.ammroth.framework.pages.LoginPage;
 import com.ammroth.framework.reports.ExtentManager;
 import com.ammroth.framework.reports.ExtentTestManager;
+import com.ammroth.framework.utils.ScreenshotUtils;
 import com.aventstack.extentreports.ExtentReports;
 
 public class BaseTest {
@@ -21,6 +22,7 @@ public class BaseTest {
 	protected Dashboards db;
 	protected Campaigns cm;
 	protected ExtentReports extent;
+	protected ScreenshotUtils su;
 	
 	@BeforeSuite
 	public void beforeSuite() {
@@ -53,7 +55,7 @@ public class BaseTest {
 		loginPage = new LoginPage(driver);		
 		db = new Dashboards(driver);
 		cm = new Campaigns(driver);	
-		
+		su = new ScreenshotUtils();
 	}
 	
 	@BeforeMethod

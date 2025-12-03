@@ -28,7 +28,7 @@ public class CampaignsTest extends BaseTest{
 		cm.enterCampaignName("DEDE1");
 		cm.enterTargetSize(10);
 		cm.clickOnCreateCampaigns();
-		
+		su.captureScreenshot(driver);
 		ExtentTestManager.getTest().pass("Campaign added successful");
 		
 	}
