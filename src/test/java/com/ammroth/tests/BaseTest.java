@@ -2,7 +2,6 @@ package com.ammroth.tests;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -11,6 +10,9 @@ import com.ammroth.framework.driver.DriverFactory;
 import com.ammroth.framework.pages.Campaigns;
 import com.ammroth.framework.pages.Dashboards;
 import com.ammroth.framework.pages.LoginPage;
+import com.ammroth.framework.reports.ExtentManager;
+import com.ammroth.framework.reports.ExtentTestManager;
+import com.aventstack.extentreports.ExtentReports;
 
 public class BaseTest {
 	
@@ -18,12 +20,17 @@ public class BaseTest {
 	protected LoginPage loginPage;
 	protected Dashboards db;
 	protected Campaigns cm;
+	protected ExtentReports extent;
 	
 	@BeforeSuite
 	public void beforeSuite() {
-		//Done - Load config files, 
+		//Done - Load config files, reporting
 		ConfigReader.loadConfig();
-		//Remaining - Setup logging, reporting, database connection, servers
+		extent = ExtentManager.getInstance();
+		ExtentManager.setupReport();
+//		    LogManager.getLogger(BaseTest.class);
+//		    DBConnection.connect();
+//		    ReportUtil.cleanOldReports();
 	}
 	
 	@BeforeTest
@@ -45,7 +52,7 @@ public class BaseTest {
 		//<==============Load Page objects==============>
 		loginPage = new LoginPage(driver);		
 		db = new Dashboards(driver);
-		cm = new Campaigns(driver);
+		cm = new Campaigns(driver);	
 		
 	}
 	
@@ -75,12 +82,14 @@ public class BaseTest {
 	@AfterTest
 	public void afterTest() {
 		System.out.println("After Test");
+		
 	}
 	
 	@AfterSuite
 	public void afterSuite() {
 		System.out.println("After Suite");
-		//Remaining - Setup logging, write test reporting, stop database connection, stop servers
+		ExtentManager.getInstance().flush();
+		//Remaining - Setup logging, stop database connection, stop servers
 	}
 	
 }

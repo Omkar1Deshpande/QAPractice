@@ -10,6 +10,13 @@
     <artifactId>selenium-java</artifactId>
     <version>4.14.0</version>
   </dependency>
+  
+  <!-- Common I/O -->
+  <dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.14.0</version>
+</dependency>
 
   <!-- TestNG -->
   <dependency>
@@ -18,7 +25,7 @@
     <version>7.8.0</version>
     <scope>test</scope>
   </dependency>
-
+ 
   <!-- WebDriverManager (driver binaries) -->
   <dependency>
     <groupId>io.github.bonigarcia</groupId>
@@ -39,6 +46,7 @@
     <artifactId>log4j-api</artifactId>
     <version>2.19.0</version>
   </dependency>
+  
   <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-core</artifactId>

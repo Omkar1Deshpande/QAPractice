@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage{
 	
+	@SuppressWarnings("unused")
 	private WebDriver driver;
 
 	public LoginPage(WebDriver driver){

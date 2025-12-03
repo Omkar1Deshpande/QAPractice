@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Dashboards {
 	
+	@SuppressWarnings("unused")
 	private WebDriver driver;
 	public Dashboards(WebDriver driver) {
         this.driver = driver;

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Campaigns {
 	
+	@SuppressWarnings("unused")
 	private WebDriver driver;
 	public Campaigns(WebDriver driver) {
         this.driver = driver;

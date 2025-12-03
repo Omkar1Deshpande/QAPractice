@@ -3,20 +3,25 @@ package com.ammroth.tests;
 import org.testng.annotations.Test;
 
 import com.ammroth.framework.config.ConfigReader;
+import com.ammroth.framework.reports.ExtentTestManager;
 
 public class CampaignsTest extends BaseTest{
 	
 	@Test(priority=1)
 	public void login() {
-		System.out.println("Login");
-		loginPage.enterUsername(ConfigReader.getProp("username"))
-		 .enterPassword(ConfigReader.getProp("password"))
-		 .clickSignIn();
+		ExtentTestManager.startTest("Login Test");
+		ExtentTestManager.getTest().info("Entering username");
+		loginPage.enterUsername(ConfigReader.getProp("username"));
+		ExtentTestManager.getTest().info("Entering password");
+		loginPage.enterPassword(ConfigReader.getProp("password"));
+		loginPage.clickSignIn();
+		
+		ExtentTestManager.getTest().pass("Login successful");
 	}
 
 	@Test(priority=2)
 	public void addCampaign() throws InterruptedException {
-		System.out.println("Add Campaign");
+		ExtentTestManager.startTest("Add Campaign Test");
 		Thread.sleep(5000);
 		db.clickOnCreateCampaigns();
 		System.out.println("Done");
@@ -24,7 +29,7 @@ public class CampaignsTest extends BaseTest{
 		cm.enterTargetSize(10);
 		cm.clickOnCreateCampaigns();
 		
-
+		ExtentTestManager.getTest().pass("Campaign added successful");
 		
 	}
 
