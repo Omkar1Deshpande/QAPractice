@@ -2,6 +2,7 @@ package com.ammroth.tests;
 
 import org.testng.annotations.Test;
 
+import com.ammroth.BaseTest.BaseTest;
 import com.ammroth.framework.config.ConfigReader;
 import com.ammroth.framework.reports.ExtentTestManager;
 

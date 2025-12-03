@@ -1,4 +1,4 @@
-package com.ammroth.tests;
+package com.ammroth.BaseTest;
 
 import java.time.Duration;
 
